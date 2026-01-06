@@ -7,7 +7,11 @@
 <script>
 fetch("https://id-sg.oppo.com/uc/web/v1/user-info/security-info", {
   method: "POST",
-  credentials: "include"
+  credentials: "include",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: "{}"
 })
 .then(r => r.text())
 .then(data => {
